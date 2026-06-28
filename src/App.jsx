@@ -122,7 +122,7 @@ function App() {
   const [isQuranLoading, setIsQuranLoading] = useState(false);
   const [activeSurah, setActiveSurah] = useState(null);
   const [quranSearchQuery, setQuranSearchQuery] = useState("");
-  const [quranReadMode, setQuranReadMode] = useState("verses"); // verses, page
+  const [quranReadMode, setQuranReadMode] = useState("page"); // verses, page
   const [loadedSurahs, setLoadedSurahs] = useState(() => {
     try {
       const cached = localStorage.getItem("loadedSurahsData");
@@ -1748,13 +1748,8 @@ function App() {
                         <h3 className="text-xs font-black font-naskh">{surah.name}</h3>
                         <span className="text-[9px] font-bold text-neutral-400 dark:text-neutral-500 font-naskh">{surah.revelationType} • {surah.ayahs.length} آية</span>
                       </div>
-                      {/* Read Mode Switcher */}
-                      <button 
-                        onClick={() => { setQuranReadMode(quranReadMode === "verses" ? "page" : "verses"); triggerHaptic(30); }}
-                        className="px-3 py-1.5 text-[10px] font-black text-amber-700 dark:text-amber-450 bg-amber-500/10 rounded-xl font-naskh clickable"
-                      >
-                        {quranReadMode === "verses" ? "قراءة متصلة" : "آيات منفصلة"}
-                      </button>
+                      {/* Read Mode Spacer */}
+                      <div className="w-[80px]" />
                     </div>
 
                     {/* Font Adjuster & Info */}
@@ -1767,66 +1762,26 @@ function App() {
                       </div>
                     </div>
 
-                    {/* Bismillah Display (Except Fatihah & Tawbah) */}
-                    {surah.number !== 1 && surah.number !== 9 && quranReadMode === "verses" && (
-                      <div className="text-center py-6 font-amiri text-lg select-text text-neutral-900 dark:text-neutral-100">
-                        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-                      </div>
-                    )}
-
                     {/* Surah Text Area */}
                     <div className="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 shadow-sm overflow-hidden select-text text-right">
-                      {quranReadMode === "page" ? (
-                        // Continuous Page layout
-                        <div 
-                          className="leading-loose tracking-wide font-amiri text-neutral-850 dark:text-neutral-100 text-justify"
-                          style={{ fontSize: `${fontSize}px` }}
-                          dir="rtl"
-                        >
-                          {surah.number !== 1 && surah.number !== 9 && (
-                            <div className="text-center mb-6 font-amiri text-lg">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-                          )}
-                          {surah.ayahs.map(ayah => (
-                            <span key={ayah.num} id={`ayah-${surah.number}-${ayah.num}`} className="inline">
-                              {ayah.text.replace(/^[﻿\s]*بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ[﻿\s]*/, "")}
-                              <span className="text-amber-600 dark:text-amber-500 font-sans font-bold mx-1.5 select-none">
-                                ﴿{ayah.num}﴾
-                              </span>
+                      {/* Continuous Page layout */}
+                      <div 
+                        className="leading-loose tracking-wide font-amiri text-neutral-850 dark:text-neutral-100 text-justify"
+                        style={{ fontSize: `${fontSize}px` }}
+                        dir="rtl"
+                      >
+                        {surah.number !== 1 && surah.number !== 9 && (
+                          <div className="text-center mb-6 font-amiri text-lg">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                        )}
+                        {surah.ayahs.map(ayah => (
+                          <span key={ayah.num} id={`ayah-${surah.number}-${ayah.num}`} className="inline">
+                            {ayah.text.replace(/^[﻿\s]*بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ[﻿\s]*/, "")}
+                            <span className="text-amber-600 dark:text-amber-500 font-sans font-bold mx-1.5 select-none">
+                              ﴿{ayah.num}﴾
                             </span>
-                          ))}
-                        </div>
-                      ) : (
-                        // Verse by verse layout with bookmarks
-                        <div className="space-y-4 max-h-[600px] overflow-y-auto pr-1">
-                          {surah.ayahs.map(ayah => (
-                            <div 
-                              key={ayah.num} 
-                              id={`ayah-${surah.number}-${ayah.num}`} 
-                              className="border-b border-neutral-100 dark:border-neutral-850 pb-4 last:border-none space-y-3 text-right"
-                            >
-                              <div className="flex justify-between items-center">
-                                <span className="w-5 h-5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-[10px] font-sans font-bold text-neutral-400 flex items-center justify-center select-none">{ayah.num}</span>
-                                <button 
-                                  onClick={() => saveQuranBookmark(surah.number, ayah.num, surah.name)}
-                                  className={`p-1.5 rounded-lg border transition-all active:scale-95 clickable ${
-                                    quranBookmark?.surahNum === surah.number && quranBookmark?.ayahNum === ayah.num
-                                      ? "bg-amber-500/10 border-amber-500/30 text-amber-600 dark:text-amber-450"
-                                      : "bg-white dark:bg-[#0e0e10] border-neutral-200 dark:border-neutral-800 text-neutral-450"
-                                  }`}
-                                >
-                                  <Bookmark className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                              <p 
-                                className="font-amiri text-neutral-850 dark:text-neutral-150 leading-loose"
-                                style={{ fontSize: `${fontSize}px` }}
-                              >
-                                {ayah.text}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
@@ -2415,7 +2370,7 @@ function App() {
                           {/* Qiyam rak'ahs count (only if > 0) */}
                           {day.qiyam > 0 ? (
                             <span className="text-[7px] font-bold text-amber-600 dark:text-amber-450 bg-amber-500/10 px-0.5 rounded-sm" title={`قيام الليل: ${day.qiyam} ركعة`}>
-                              🌙 {day.qiyam}ر
+                              🌙 {day.qiyam}
                             </span>
                           ) : (
                             <span className="h-2.5" /> // Spacer to preserve layout alignment
