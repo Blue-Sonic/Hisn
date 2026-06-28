@@ -17,6 +17,7 @@ import {
 import { Haptics } from "@capacitor/haptics";
 import { LocalNotifications } from "@capacitor/local-notifications";
 import { registerPlugin } from "@capacitor/core";
+import { App as CapApp } from "@capacitor/app";
 
 const HisnAudio = registerPlugin("HisnAudio");
 
@@ -508,6 +509,35 @@ function App() {
       console.log("LocalNotifications requestPermissions failed:", e);
     }
   }, []);
+
+  // --- Android Native Back Button Handler ---
+  useEffect(() => {
+    let handler;
+    const registerBackButton = async () => {
+      handler = await CapApp.addListener("backButton", () => {
+        if (activeSurah !== null) {
+          setActiveSurah(null);
+          triggerHaptic(30);
+        } else if (quranSearchQuery.trim() !== "") {
+          setQuranSearchQuery("");
+          triggerHaptic(30);
+        } else if (activeTab !== "home") {
+          setActiveTab("home");
+          triggerHaptic(30);
+        } else {
+          CapApp.exitApp();
+        }
+      });
+    };
+    
+    registerBackButton();
+    
+    return () => {
+      if (handler) {
+        handler.remove();
+      }
+    };
+  }, [activeSurah, activeTab, quranSearchQuery]);
 
   // --- Real-time Prayer Time Alerts Interval ---
   const lastCheckedAlert = useRef({});
