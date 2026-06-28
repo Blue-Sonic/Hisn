@@ -1,16 +1,107 @@
-# React + Vite
+# حسين / Hisn 🕌
+> **حصن المسلم الشامل - رفيقك اليومي المبتكر للعبادة، التحصين، ومتابعة الصلوات**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Vite Build](https://img.shields.io/badge/Vite-v8.1.0-blueviolet?logo=vite)](https://vite.dev/)
+[![React](https://img.shields.io/badge/React-v19.0-61dafb?logo=react)](https://react.dev/)
+[![Capacitor Android](https://img.shields.io/badge/Capacitor-v8.4-green?logo=capacitor)](https://capacitorjs.com/)
+[![APK Size](https://img.shields.io/badge/APK_Size-4.9_MB-emerald?style=flat-square)](#)
+[![License](https://img.shields.io/badge/License-MIT-amber)](#)
 
-Currently, two official plugins are available:
+تطبيق ويب وأندرويد تفاعلي متكامل مبني باستخدام تقنيات الويب الحديثة ومغلف كحزمة هاتف أصلية، يجمع بين البساطة والأناقة البصرية الفائقة مع تركيز كامل على الخصوصية والتشغيل دون اتصال بالإنترنت نهائياً.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🔗 **رابط المعاينة المباشرة للموقع التعريفي (Live Showcase):** [AdammLab.github.io/Hisn/](https://AdammLab.github.io/Hisn/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎨 الهوية البصرية والتصميم (Design System)
+تم بناء واجهة المستخدم بالاعتماد على فلسفة **الزجاج المصقول (Glassmorphism)** والمؤشرات البصرية الميكروية (Micro-animations):
+* **تدرج ألوان رمادي/زمردي مريح للعين** (`bg-neutral-50 dark:bg-[#16161a]` مع هوامش وحدود `border-neutral-200 dark:border-neutral-800`).
+* **خطوط عربية كلاسيكية أصيلة** (`font-amiri` لقراءة القرآن الكريم، و`font-naskh` للأذكار والنصوص العامة).
+* **دعم السمة الداكنة التلقائية** المتزامنة مع نظام الهاتف بالكامل.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 الميزات الجبارة المضافة (Key Features)
+
+### 1. المصحف الشريف (أوفلاين 100% مدى الحياة) 📖
+* **تضمين محلي كامل:** تم دمج نص القرآن الكريم كاملاً بالرسم العثماني بداخل التطبيق، ويعمل دون الحاجة لأي اتصال بالإنترنت نهائياً.
+* **قراءة متصلة سلسة:** إخلاء الواجهة لتعرض القرآن كصفحات متصلة مريحة للعين، مع تحكم كامل بحجم الخط.
+* **علامات التوقف (Bookmarks):** حفظ وحفظ تلقائي لآخر آية تم قراءتها للعودة إليها فوراً بضغطة زر.
+* **البحث القرآني المحلي اللحظي:** محرك بحث محلي ذكي يستغرق أجزاء من الملي ثانية للبحث في المصحف أوفلاين بالكامل.
+
+### 🛡️ 2. بروتوكول الرقية العلاجية الموحدة (67 خطوة)
+* **دمج شامل ومسلسل:** دمج الـ 25 خطوة العامة مع الـ 42 خطوة علاجية تخصصية (السحر، المس، العين، القرين، التفريق) في جدول علاجي موحد ومستمر.
+* **عداد تنازلي تفاعلي:** الضغط على الخطوة ينقص عدد التكرارات تلقائياً، ومع اكتمال التكرارات تتحول الخطوة لحالة المكتمل مع تظليل ناعم.
+* **إعادة ضبط ذكي:** إمكانية تصفير أو إعادة ضبط تقدم الرقية بالكامل بنقرة واحدة.
+
+### 🔔 3. التنبيهات المكررة الذكية للأذكار اليومية
+* **تنبيهات مجدولة:** تنبيهات نظام تلقائية لأذكار الصباح (7:00 ص)، أذكار المساء (4:30 م)، وأذكار النوم (10:00 م).
+* **إلحاح التحصين:** في حال عدم قراءة الورد، يرسل التطبيق إشعاراً تذكيرياً لطيفاً **كل 30 دقيقة** متتالية.
+* **إلغاء فوري ذكي:** بمجرد دخول المستخدم وإتمام قراءة الورد، يلغي التطبيق فوراً كافة التذكيرات المتبقية لذلك اليوم لتوفير طاقة البطارية ومنع الإزعاج.
+
+### 📈 4. التزام الصلوات الأسبوعي ومؤشر التهجد
+* **رسم بياني متفاعل بمتوسط الصلوات:** تدرج لوني دافئ يتصاعد من الأخضر الباهت عند أداء صلاة واحدة إلى اللون الزمردي الزاهي والصلد عند إتمام الصلوات الخمس كاملة (`5/5`).
+* **متابعة ركعات قيام الليل:** يظهر رمز هلال ورقم الركعات المبسط (مثل `🌙 8`) أعلى العمود كحافز إيماني لمتابعة السنن والنوافل الليلية.
+
+### 📻 5. البث الإذاعي الصوتي والمشغل الذكي
+* **مشغل صوتي مستقر:** مشغل صوتي محلي مدعوم بخدمة أندرويد أصلية في الخلفية (`Foreground Audio Service`) لمنع خنق WebView.
+* **إذاعات البث المباشر:** إذاعة القرآن من القاهرة والرياض، إذاعة الرقية الشرعية على مدار 24 ساعة.
+* **مؤشرات التحميل والاتصال (Buffer States):** إظهار مؤشار تحميل دوار (Spinner) متناسق داخل أزرار التشغيل لتوضيح حالة الاتصال وسرعة استجابة البث المباشر.
+
+### 📿 6. مسبحة التسبيح التفاعلية
+* عداد رقمي كبير مع مؤشر تقدم دائري تفاعلي.
+* اهتزازات تفاعلية خفيفة ولطيفة (Haptic Feedback) مع كل تسبيحة وعند بلوغ الهدف المحدد (33، 99، أو هدف مخصص).
+
+---
+
+## 🛠️ التكنولوجيات المستخدمة (Tech Stack)
+* **الواجهة الأمامية (Frontend):** React (Single Page Application)
+* **أداة البناء (Build Tool):** Vite & Rollup
+* **التصميم والتنسيق:** Vanilla CSS & TailwindCSS (للصفحة التعريفية والمكونات الزجاجية)
+* **الجسر الهجين (Hybrid Bridge):** `@capacitor/core` & `@capacitor/android`
+* **معالجة الصوت المحسن:** `@capacitor/app` & Native Android Service
+* **الاستضافة والتوثيق:** GitHub Pages (/docs directory)
+
+---
+
+## ⚙️ تشغيل وتهيئة المشروع محلياً (Local Setup)
+
+1. قم بعمل Clone للمستودع:
+   ```bash
+   git clone https://github.com/AdammLab/Hisn.git
+   ```
+2. قم بتثبيت الحزم البرمجية:
+   ```bash
+   npm install
+   ```
+3. تشغيل التطبيق في بيئة التطوير المحلية:
+   ```bash
+   npm run dev
+   ```
+4. بناء نسخة الإنتاج والمزامنة مع الأندرويد:
+   ```bash
+   npm run build
+   npx cap sync
+   ```
+
+---
+
+## 📱 ترجمة التطبيق للأندرويد (Android Compilation)
+* افتح المجلد `android` بداخل أداة **Android Studio**.
+* لتصدير حزمة الـ APK المباشرة عبر الطرفية، قم بتشغيل الأمر:
+  ```bash
+  cd android && ./gradlew assembleDebug
+  ```
+* الحزمة الناتجة ستكون متوفرة في المسار: `android/app/build/outputs/apk/debug/app-debug.apk` بحجم **4.9 ميجابايت** فقط!
+
+---
+
+## 📝 إعدادات GitHub Pages الهامة
+> [!IMPORTANT]
+> لضمان استمرار عمل الموقع التعريفي الرسمي بكفاءة، يرجى الدخول إلى إعدادات المستودع على جيت هب **(Repository Settings -> Pages)**، وتغيير المجلد المصدر لعملية النشر والإنشاء من المجلد الرئيسي **(Root /)** إلى المجلد الخاص بالتوثيق **(`/docs`)**.
+
+---
+
+## ✍️ الحقوق والاعتماد (Credits)
+* **التصميم الإبداعي والتطوير الاحترافي للموقع والتطبيق:** [المهندس المصمم / Blue-Sonic](https://github.com/Blue-Sonic)
+* **المشروع والمالك للمستودع:** [مختبر آدم / AdammLab](https://github.com/AdammLab)
