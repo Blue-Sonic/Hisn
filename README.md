@@ -1,43 +1,16 @@
-# Hisn (حصن) 🕌
+# React + Vite
 
-> **حصن المسلم - رفيقك اليومي للعبادة والأذكار**
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-🔗 **رابط المعاينة المباشرة (Live Demo):** [adammlab.github.io/Hisn/](https://adammlab.github.io/Hisn/)
+Currently, two official plugins are available:
 
-تطبيق ويب تفاعلي وبسيط يعرض أذكار الصباح والمساء وأدعية المسلم اليومية بطريقة مريحة للعين وتصميم عصري متناسق، مصمم ليسهل قراءة الأذكار اليومية ومتابعة العدادات التفاعلية لكل ذكر.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## 🌟 المميزات (Features)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- ☀️ **أذكار الصباح والمساء:** مقسمة ومنظمة لسهولة القراءة والوصول.
-- 🔢 **عدادات تفاعلية:** إمكانية الضغط على الذكر لتكراره مع عداد تنازلي حتى انتهاء عدد التكرارات المطلوبة.
-- 🎨 **تصميم مريح للعين:** استخدام خطوط واضحة وألوان متناسقة تناسب القراءة الطويلة.
-- 📱 **متوافق بالكامل مع الجوال:** تصميم مرن وسريع الاستجابة (Responsive Design) يناسب كافة الشاشات.
+## Expanding the ESLint configuration
 
----
-
-## 🛠️ التكنولوجيات المستخدمة (Tech Stack)
-
-- **الهيكل:** HTML5
-- **التصميم:** CSS3 (Vanilla CSS)
-- **المنطق والعدادات:** JavaScript (Vanilla JS)
-- **الاستضافة:** GitHub Pages
-
----
-
-## 🚀 التشغيل المحلي (Local Setup)
-
-لتشغيل المشروع محلياً على جهازك، لا تحتاج إلى أي أدوات تثبيت معقدة:
-
-1. قم بعمل Clone للمستودع:
-   ```bash
-   git clone https://github.com/AdamMLab/Hisn.git
-   ```
-2. افتح ملف `index.html` في أي متصفح ويب مباشرة.
-
----
-
-## 📝 الترخيص (License)
-
-هذا المشروع متاح للاستخدام الشخصي والتعليمي.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

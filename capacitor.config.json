@@ -1,0 +1,8 @@
+{
+  "appId": "com.muslim.protection.hisn",
+  "appName": "Hisn",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "http"
+  }
+}

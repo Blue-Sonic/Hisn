@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حصن المسلم - رفيقك اليومي للعبادة والأذكار</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&family=Outfit:wght@400;600;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            naskh: ['"Noto Naskh Arabic"', 'serif'],
+            outfit: ['"Outfit"', 'sans-serif'],
+            amiri: ['"Amiri"', 'serif']
+          },
+          colors: {
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Exact app background patterns */
+    .app-bg-gradient {
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.03) 0, transparent 40%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.02) 0, transparent 40%);
+    }
+    
+    /* Custom Scrollbar matching App */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #ffffff;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #0e0e10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cccccc;
+      border-radius: 2.5px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #27272a;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #999999;
+    }
+    
+    /* Animations matching App */
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-[#0e0e10] text-[#121214] dark:text-[#f4f4f5] font-outfit transition-colors duration-300 overflow-x-hidden app-bg-gradient">
+
+  <!-- HEADER (Exact App style) -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#0e0e10]/90 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-900 px-6 py-4 flex items-center justify-between transition-colors duration-300">
+    <div class="max-w-6xl mx-auto w-full flex items-center justify-between">
+      
+      <!-- Brand Logo (Matching App header) -->
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shadow-sm">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h1 class="text-sm font-extrabold tracking-tight font-naskh">حصن المسلم</h1>
+          <p class="text-[9px] text-neutral-500 dark:text-neutral-400 font-bold -mt-0.5">رفيقك اليومي للعبادة</p>
+        </div>
+      </div>
+      
+      <!-- Theme Switcher (Matching App button) -->
+      <button onclick="toggleTheme()" class="p-2 rounded-xl bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 text-neutral-500 hover:text-black dark:hover:text-white transition-all clickable">
+        <i id="theme-icon" data-lucide="sun" class="w-4 h-4"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+    <!-- Hero Text (Right Side in RTL) -->
+    <div class="lg:col-span-7 space-y-6 text-right order-2 lg:order-1">
+      <div class="inline-flex items-center gap-1.5 bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 px-3 py-1 rounded-full text-[10px] font-bold font-naskh">
+        <i data-lucide="shield" class="w-3.5 h-3.5 text-amber-500"></i>
+        <span class="text-neutral-700 dark:text-neutral-300">تطبيق الإنتاج الرسمي جاهز الآن</span>
+      </div>
+      
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight font-naskh text-black dark:text-white">
+        رفيقك الدائم للتحصين <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-l from-amber-500 to-emerald-500">والأذكار اليومية</span>
+      </h2>
+      
+      <p class="text-sm md:text-base text-neutral-600 dark:text-neutral-450 leading-relaxed font-naskh max-w-xl">
+        تطبيق إسلامي فريد وخفيف الوزن مصمم لمساعدتك في الحفاظ على أذكار الصباح والمساء، تصفح المصحف الشريف بالكامل أوفلاين، ومتابعة مواقيت الصلاة بدقة مع تنبيهات تفاعلية مكررة وخلفية صوتية مستقرة تدوم لساعات.
+      </p>
+      
+      <!-- Call to Actions (Matching App buttons) -->
+      <div class="flex flex-wrap gap-4 pt-4 justify-start">
+        <a href="#download" class="px-7 py-3.5 bg-emerald-600 text-white dark:bg-emerald-500 dark:text-black rounded-2xl font-black text-xs font-naskh transition-all hover:scale-[1.02] shadow-sm hover:opacity-90 active:scale-95 clickable flex items-center gap-2">
+          <i data-lucide="download" class="w-4.5 h-4.5"></i>
+          تحميل التطبيق (Android APK)
+        </a>
+        <a href="#demo" class="px-7 py-3.5 bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-2xl font-black text-xs font-naskh transition-all hover:scale-[1.02] clickable active:scale-95">
+          جرب التنبيه الصوتي الحسابي
+        </a>
+      </div>
+    </div>
+    
+    <!-- Hero Mockup (Left Side in RTL) -->
+    <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+      <!-- Device container with dark app theme -->
+      <div class="relative w-64 h-[520px] rounded-[42px] border-[7px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0e0e10] shadow-2xl overflow-hidden">
+        <!-- Speaker / Camera notch -->
+        <div class="absolute top-0 inset-x-0 h-4 bg-neutral-200 dark:bg-neutral-800 flex justify-center items-center z-30">
+          <div class="w-16 h-3 rounded-full bg-neutral-900 -mt-1.5"></div>
+        </div>
+        
+        <!-- App Inside Emulator Screen -->
+        <div class="w-full h-full pt-4 bg-white dark:bg-[#0e0e10] flex flex-col justify-between overflow-y-auto no-scrollbar text-right text-[#121214] dark:text-[#f4f4f5]">
+          
+          <!-- Mockup Header -->
+          <div class="p-4 flex items-center justify-between border-b border-neutral-100 dark:border-neutral-900">
+            <div class="w-7 h-7 rounded-lg bg-neutral-50 dark:bg-[#16161a] flex items-center justify-center text-amber-500">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            </div>
+            <span class="text-[10px] font-black font-naskh text-black dark:text-white">حصن المسلم</span>
+            <i data-lucide="menu" class="w-4 h-4 text-neutral-400"></i>
+          </div>
+          
+          <!-- Mockup Content (Next Prayer Card) -->
+          <div class="p-4 space-y-4 flex-1">
+            <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 rounded-3xl p-4 space-y-2 text-right">
+              <span class="text-[8px] font-black text-emerald-500 dark:text-emerald-500 uppercase tracking-wide font-naskh">الصلاة القادمة</span>
+              <div class="flex justify-between items-center">
+                <span class="text-lg font-black font-naskh text-black dark:text-white">العصر</span>
+                <span class="text-xs font-bold text-neutral-500 dark:text-neutral-450 font-sans">3:24 م</span>
+              </div>
+              <p class="text-[9px] text-neutral-500 dark:text-neutral-400 font-naskh">متبقي: 2 ساعة و 15 دقيقة</p>
+            </div>
+            
+            <!-- Quick Adhkar Tracker -->
+            <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 rounded-3xl p-4 space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-black font-naskh text-black dark:text-white">أذكار الصباح</span>
+                <span class="text-[9px] text-emerald-500 font-bold font-naskh">مكتمل 80%</span>
+              </div>
+              <div class="w-full h-1.5 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-500" style="width: 80%"></div>
+              </div>
+            </div>
+            
+            <!-- Audio Track player simulator -->
+            <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 rounded-3xl p-4 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                  <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                </div>
+                <div class="text-right">
+                  <h4 class="text-[9px] font-black font-naskh truncate text-black dark:text-white">سورة البقرة (الرقية)</h4>
+                  <p class="text-[7px] text-neutral-500 dark:text-neutral-450 font-naskh">الشيخ مشاري العفاسي</p>
+                </div>
+              </div>
+              <i data-lucide="volume-2" class="w-4 h-4 text-emerald-500"></i>
+            </div>
+          </div>
+          
+          <!-- Mockup Navigation -->
+          <div class="p-3 bg-neutral-50 dark:bg-[#16161a] border-t border-neutral-100 dark:border-neutral-900 flex justify-around">
+            <div class="flex flex-col items-center text-emerald-500">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span class="text-[7px] font-black font-naskh mt-0.5">الرئيسية</span>
+            </div>
+            <div class="flex flex-col items-center text-neutral-400">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span class="text-[7px] font-bold font-naskh mt-0.5">المصحف</span>
+            </div>
+            <div class="flex flex-col items-center text-neutral-400">
+              <i data-lucide="compass" class="w-4 h-4"></i>
+              <span class="text-[7px] font-bold font-naskh mt-0.5">الحصن</span>
+            </div>
+            <div class="flex flex-col items-center text-neutral-400">
+              <i data-lucide="settings" class="w-4 h-4"></i>
+              <span class="text-[7px] font-bold font-naskh mt-0.5">الضبط</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE PLAYBACK SECTION (Exact App Card styles) -->
+  <section id="demo" class="max-w-4xl mx-auto px-6 py-16 text-center space-y-8">
+    <div class="space-y-2">
+      <h3 class="text-2xl md:text-3xl font-extrabold font-naskh text-black dark:text-white">جرب تنبيه ومعاينة الأذان التفاعلية</h3>
+      <p class="text-xs text-neutral-600 dark:text-neutral-400 font-naskh max-w-xl mx-auto">
+        قم باختيار النغمة الحسابية المتكررة 12 مرة أو حدد مؤذنك المفضل واستمع للمعاينة الحية للمنبه البرودكشن مباشرة داخل المتصفح.
+      </p>
+    </div>
+
+    <!-- Alarm Chime Card (Matching App dashboard card styles) -->
+    <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 md:p-8 max-w-lg mx-auto shadow-sm text-right space-y-6">
+      
+      <!-- Selector List -->
+      <div class="space-y-3">
+        <!-- Loop Option Beep -->
+        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-white dark:bg-[#0e0e10] border border-neutral-150 dark:border-neutral-850 hover:scale-[1.01] transition-transform">
+          <button onclick="selectAthan('beep')" class="flex items-center gap-3 text-right flex-1 focus:outline-none clickable">
+            <div id="radio-beep" class="w-4 h-4 rounded-full border border-emerald-500 bg-emerald-500/10 flex items-center justify-center">
+              <div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+            </div>
+            <span class="text-xs font-black text-emerald-500 font-naskh">نغمة تنبيه رقمية متصاعدة (18.4 ثانية)</span>
+          </button>
+          <button onclick="togglePreview('beep', null)" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20 active:scale-95 transition-all clickable">
+            <i id="btn-beep" data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </button>
+        </div>
+
+        <!-- Makkah Option -->
+        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-white dark:bg-[#0e0e10] border border-neutral-150 dark:border-neutral-850 hover:scale-[1.01] transition-transform">
+          <button onclick="selectAthan('azan1')" class="flex items-center gap-3 text-right flex-1 focus:outline-none clickable">
+            <div id="radio-azan1" class="w-4 h-4 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center">
+              <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+            </div>
+            <span id="label-azan1" class="text-xs font-bold text-neutral-600 dark:text-neutral-300 font-naskh">أذان الحرم المكي الشريف</span>
+          </button>
+          <button onclick="togglePreview('azan1', 'https://www.islamcan.com/audio/adhan/azan1.mp3')" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20 active:scale-95 transition-all clickable">
+            <i id="btn-azan1" data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </button>
+        </div>
+
+        <!-- Abdulbasit Option -->
+        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-white dark:bg-[#0e0e10] border border-neutral-150 dark:border-neutral-850 hover:scale-[1.01] transition-transform">
+          <button onclick="selectAthan('azan3')" class="flex items-center gap-3 text-right flex-1 focus:outline-none clickable">
+            <div id="radio-azan3" class="w-4 h-4 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center">
+              <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+            </div>
+            <span id="label-azan3" class="text-xs font-bold text-neutral-600 dark:text-neutral-300 font-naskh">أذان الشيخ عبد الباسط عبد الصمد</span>
+          </button>
+          <button onclick="togglePreview('azan3', 'https://www.islamcan.com/audio/adhan/azan3.mp3')" class="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20 active:scale-95 transition-all clickable">
+            <i id="btn-azan3" data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KEY FEATURES SHOWCASE (Matching App Grid list styles) -->
+  <section class="max-w-6xl mx-auto px-6 py-16 border-t border-neutral-100 dark:border-neutral-900 space-y-12">
+    <div class="text-center space-y-2">
+      <h3 class="text-2xl md:text-3xl font-extrabold font-naskh text-black dark:text-white">مميزات مصممة بجودة متناهية وبطرق إبداعية</h3>
+      <p class="text-xs text-neutral-600 dark:text-neutral-450 font-naskh max-w-lg mx-auto">
+        تطبيق حصن المسلم غني بالخواص والمميزات الذكية التي تم بناؤها وتنقيتها خصيصاً لتفوق التطلعات.
+      </p>
+    </div>
+
+    <!-- 8 Features Grid (Styled exactly like App cards) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="radio" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">مشغل خلفية مستقر تماماً</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          يتكامل التطبيق مع الأندرويد الأصلي ليعطيك تشغيلاً صوتياً خلفياً مستمراً للأذكار والرقية لمدة تتجاوز 8 ساعات دون انقطاع.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">مصحف كامل أوفلاين وسريع</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          تصفح القرآن الكريم كاملاً وابحث بالآية أو السورة باستخدام محرك البحث الذكي المجرّد من التشكيل لسرعة البحث والدقة.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="bell" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">تنبيهات الأذان والنظام</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          تنبيهات منبثقة (Pop-up Notifications) متكاملة على شاشتك لحماية مواقيت صلاتك مع نغمات حصرية من الحرمين الشريفين.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="layout" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">ويدجت الشاشة الرئيسية</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          ويدجت دائري ممتاز يحاكي تصميمات iOS الفاخرة يظهر الصلاة القادمة والمتبقي لها لمتابعتها طوال الوقت بلمحة سريعة.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="activity" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">مسبحة التسبيح التفاعلية</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          عداد تسبيح ذكي وتفاعلي بالكامل يدعم الاهتزازات التفاعلية (Haptic Feedback) ومستويات إنجاز يومية للمتابعة.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">التقويم الهجري والمحوّل</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          تتبع الأيام الهجرية والمناسبات الإسلامية وحوّل بين التاريخ الميلادي والهجري بدقة فائقة وبكبسة زر واحدة.
+        </p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">دليل العلاج بالرقية الشرعية</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          دليل إرشادي شامل وخطوات مفصلة للرقية الشرعية وعلاج السحر المأكول، سحر التفريق، وسحر القرين بالأوراد والآيات.
+        </p>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="bg-neutral-50 dark:bg-[#16161a] border border-neutral-200 dark:border-neutral-800 rounded-3xl p-6 text-right space-y-4 hover:border-amber-500/30 transition-all hover:scale-[1.02] shadow-sm">
+        <div class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-amber-500">
+          <i data-lucide="flame" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-sm font-black text-black dark:text-white font-naskh">تتبع العادات والالتزام</h4>
+        <p class="text-xs text-neutral-550 dark:text-neutral-400 font-naskh leading-relaxed">
+          نظام تتبع أيام النشاط المتتالية (Habits Streak) لرفع مستوى التزامك بالأذكار والصلوات والعبادات اليومية.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INSTALLATION SECTION -->
+  <section id="download" class="max-w-4xl mx-auto px-6 py-16 text-center space-y-8 border-t border-neutral-100 dark:border-neutral-900">
+    <div class="space-y-2">
+      <h3 class="text-2xl md:text-3xl font-extrabold font-naskh text-black dark:text-white">ابدأ تشغيل حصن المسلم الآن</h3>
+      <p class="text-xs text-neutral-600 dark:text-neutral-450 font-naskh max-w-xl mx-auto">
+        قم بتحميل حزمة تثبيت التطبيق الأصلية للأندرويد مباشرة، أو اطلع على الكود البرمجي الكامل والمفتوح المصدر على جيت هب.
+      </p>
+    </div>
+
+    <!-- Download Buttons (Matching App styles) -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+      <a href="https://github.com/Blue-Sonic/Hisn/releases/download/v1.0.0/Hisn.apk" class="flex-1 py-4 bg-emerald-600 text-white dark:bg-emerald-500 dark:text-black rounded-2xl font-black text-xs font-naskh transition-all hover:scale-[1.02] shadow-sm hover:opacity-90 active:scale-95 clickable flex items-center justify-center gap-2">
+        <i data-lucide="download" class="w-4.5 h-4.5"></i>
+        تنزيل حزمة APK المباشرة
+      </a>
+      <a href="https://github.com/Blue-Sonic/Hisn" target="_blank" class="flex-1 py-4 bg-neutral-50 dark:bg-[#16161a] border border-neutral-150 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 rounded-2xl font-black text-xs font-naskh transition-all clickable active:scale-95 border border-neutral-200 dark:border-neutral-800 flex items-center justify-center gap-2">
+        <i data-lucide="github" class="w-4.5 h-4.5"></i>
+        عرض الكود على GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-neutral-50 dark:bg-[#16161a] border-t border-neutral-100 dark:border-neutral-900 py-10 text-center text-[10px] text-neutral-400 dark:text-neutral-500 font-naskh space-y-4">
+    <div class="max-w-6xl mx-auto px-6 space-y-2">
+      <!-- Credit to the designer styled as custom alert dialog in App -->
+      <div class="flex flex-col items-center justify-center gap-2 max-w-md mx-auto">
+        <div class="bg-amber-500/5 dark:bg-amber-500/5 border border-amber-500/20 dark:border-amber-500/10 rounded-2xl p-4 flex items-center justify-center shadow-sm w-full animate-pulse-subtle">
+          <span class="text-xs font-black text-amber-700 dark:text-amber-450 font-naskh">
+            تم التصميم الإبداعي والتطوير الاحترافي بواسطة المهندس المصمم / Blue-Sonic
+          </span>
+        </div>
+      </div>
+      <p class="pt-6">تطبيق حصن المسلم © 2026. جميع الحقوق محفوظة ومتاحة للاستخدام الشخصي المجاني.</p>
+    </div>
+  </footer>
+
+  <!-- Web Audio Playback Script -->
+  <script>
+    let activeAthan = 'beep';
+    let audioCtx = null;
+    let previewAudio = null;
+    let currentPreviewId = null;
+    let beepTimeoutId = null;
+
+    // Theme Switcher (Matching App implementation)
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        icon.setAttribute('data-lucide', 'moon');
+      } else {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        icon.setAttribute('data-lucide', 'sun');
+      }
+      lucide.createIcons();
+    }
+
+    // Select Athan option
+    function selectAthan(id) {
+      // Reset radio styles
+      ['beep', 'azan1', 'azan3'].forEach(opt => {
+        const radio = document.getElementById(`radio-${opt}`);
+        const label = document.getElementById(`label-${opt}`);
+        
+        radio.className = "w-4 h-4 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center";
+        radio.innerHTML = '<div class="w-2 h-2 rounded-full bg-transparent"></div>';
+        
+        if (label) {
+          label.className = "text-xs font-bold text-neutral-600 dark:text-neutral-300 font-naskh";
+        }
+      });
+
+      // Set selected radio styles
+      const activeRadio = document.getElementById(`radio-${id}`);
+      const activeLabel = document.getElementById(`label-${id}`);
+      
+      activeRadio.className = "w-4 h-4 rounded-full border border-emerald-500 bg-emerald-500/10 flex items-center justify-center";
+      activeRadio.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>';
+      
+      if (activeLabel) {
+        activeLabel.className = "text-xs font-black text-emerald-500 font-naskh";
+      }
+      
+      activeAthan = id;
+    }
+
+    // Play synthesized loop or audio URL
+    function togglePreview(id, url) {
+      const playIcon = document.getElementById(`btn-${id}`);
+      
+      if (currentPreviewId === id) {
+        // Stop current
+        stopAllPreviews();
+        return;
+      }
+
+      // Stop any running previews first
+      stopAllPreviews();
+
+      // Play new
+      currentPreviewId = id;
+      playIcon.setAttribute('data-lucide', 'square');
+      playIcon.classList.add('text-red-500');
+      lucide.createIcons();
+
+      if (id === 'beep') {
+        try {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          const playTone = (freq, duration, delay) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime + delay);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration - 0.05);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(audioCtx.currentTime + delay);
+            osc.stop(audioCtx.currentTime + delay + duration);
+          };
+
+          // Loop 12 times (~18.4s)
+          for (let i = 0; i < 12; i++) {
+            const seqDelay = i * 1.6;
+            playTone(523.25, 0.3, seqDelay);
+            playTone(659.25, 0.3, seqDelay + 0.2);
+            playTone(783.99, 0.4, seqDelay + 0.4);
+          }
+
+          beepTimeoutId = setTimeout(() => {
+            stopAllPreviews();
+          }, 19500);
+
+        } catch (e) {
+          console.log(e);
+        }
+      } else if (url) {
+        previewAudio = new Audio(url);
+        previewAudio.play()
+          .then(() => {
+            previewAudio.onended = () => {
+              stopAllPreviews();
+            };
+          })
+          .catch(e => {
+            console.log(e);
+            stopAllPreviews();
+          });
+      }
+    }
+
+    function stopAllPreviews() {
+      if (currentPreviewId) {
+        const playIcon = document.getElementById(`btn-${currentPreviewId}`);
+        if (playIcon) {
+          playIcon.setAttribute('data-lucide', 'play');
+          playIcon.classList.remove('text-red-500');
+        }
+      }
+
+      if (audioCtx) {
+        audioCtx.close().catch(() => {});
+        audioCtx = null;
+      }
+      if (previewAudio) {
+        previewAudio.pause();
+        previewAudio = null;
+      }
+      if (beepTimeoutId) {
+        clearTimeout(beepTimeoutId);
+        beepTimeoutId = null;
+      }
+
+      currentPreviewId = null;
+      lucide.createIcons();
+    }
+
+    // Initialize lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
